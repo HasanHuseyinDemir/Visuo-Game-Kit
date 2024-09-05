@@ -1,10 +1,10 @@
 export const random={
     pick(array){
-        let pickIndex=rand.int(0,array.length-1)
+        let pickIndex=random.int(0,array.length-1)
         return array[pickIndex]
     },
     bool(){
-        return !!rand.int(0,1);
+        return !!random.int(0,1);
     },
     int(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
