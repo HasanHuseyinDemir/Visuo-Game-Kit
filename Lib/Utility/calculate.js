@@ -8,16 +8,16 @@ function angleBetweenPoints(point1, point2) {
 
 function collisionDetectRect(o1, o2) {
     let ob1 = {
-        x: ev(o1.x) ?? 0,
-        y: ev(o1.y) ?? 0,
-        width: ev(o1.width) ?? 0,
-        height: ev(o1.height) ?? 0
+        x: o1.x ?? 0,
+        y: o1.y ?? 0,
+        width: o1.width ?? 0,
+        height: o1.height ?? 0
     }
     let ob2 = {
-        x: ev(o2.x) ?? 0,
-        y: ev(o2.y) ?? 0,
-        width: ev(o2.width) ?? 0,
-        height: ev(o2.height) ?? 0
+        x: o2.x ?? 0,
+        y: o2.y ?? 0,
+        width: o2.width ?? 0,
+        height: o2.height ?? 0
     }
 
     if (ob1.x < ob2.x + ob2.width &&
@@ -36,6 +36,7 @@ function collisionDetectCircle(c1, c2) {
 }
 
 function collisionTest(a,b){
+    //WIP
     if(a.shape=="circle"&&b.shape=="circle"){
         return collisionDetectCircle(a,b)
     }else{

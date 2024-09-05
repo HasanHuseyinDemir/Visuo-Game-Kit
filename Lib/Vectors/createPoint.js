@@ -1,10 +1,7 @@
 export function createVector(v = {}) {
-    let x = v.x ?? 0;
-    let y = v.y ?? 0;
-
     return {
-        x: x,
-        y: y,
+        x: v.x??0,
+        y: v.y??0,
         add(a) {
             this.x += a.x ?? 0;
             this.y += a.y ?? 0;
