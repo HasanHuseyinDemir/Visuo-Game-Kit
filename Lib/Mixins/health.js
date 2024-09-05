@@ -1,28 +1,23 @@
 function healthMixin({ maxHealth = 100, currentHealth = 100, hooks = {} } = {}) {
     return {
-        health: {
             maxHealth,
             currentHealth,
             hooks: { ...hooks },
-
             takeDamage(amount) {
                 if (amount > 0 && this.hooks.onDamage) {
                     this.hooks.onDamage({ takedDamage: amount, currentHealth: this.currentHealth });
                 }
                 this.currentHealth = Math.max(0, this.currentHealth - amount);
-
                 if (this.isDead() && this.hooks.onDead) {
                     this.hooks.onDead({ takedDamage: amount, currentHealth: 0 });
                 }
             },
-
             heal(amount) {
                 if (amount > 0 && this.hooks.onHeal) {
                     this.hooks.onHeal({ heal: amount, currentHealth: this.currentHealth });
                 }
                 this.currentHealth = Math.min(this.maxHealth, this.currentHealth + amount);
             },
-
             setHealth(amount) {
                 let current = this.currentHealth;
                 if (amount <= 0) {
@@ -47,50 +42,17 @@ function healthMixin({ maxHealth = 100, currentHealth = 100, hooks = {} } = {}) 
                 }
                 this.currentHealth = Math.min(this.maxHealth, this.currentHealth);
             },
-
             setMaxHealth(newMaxHealth) {
                 this.maxHealth = newMaxHealth;
                 if (this.currentHealth > newMaxHealth) {
                     this.setHealth(newMaxHealth);
                 }
             },
-
             isDead() {
                 return this.currentHealth <= 0;
             },
-            
             kill(){
                 this.setHealth(0)
             }
         }
     };
-}
-
-
-/*              
-                                                        [EXAMPLE]
-
-const character={
-
-visual:...
-data:{
-
-...healthMixin({maxHealth:100,currentHealth:100})
-
-}
-
-onStep(){
-    let {health}=character.data
-    //karakter hasar alıcağı bir durumda
-    health.takeDamage(15)
-
-    if(potion){
-        health.heal(potion.healCount)
-    }
-
-
-}
-
-}
-
- */
