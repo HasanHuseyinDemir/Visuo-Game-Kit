@@ -1,13 +1,11 @@
 export function vectorMixin(v = {}, onChange) {
     let _x = v.x ?? 0;
     let _y = v.y ?? 0;
-
     function triggerOnChange() {
         if (typeof hooks.onChange=="function") {
             hooks.onChange({ x: this.x, y: this.y });
         }
     }
-
     return {
         hooks: { ...hooks },
         onChange,
