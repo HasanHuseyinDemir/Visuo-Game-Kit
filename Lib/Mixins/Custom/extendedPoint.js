@@ -1,4 +1,4 @@
-import { vectorMixin } from "../../Vectors/pointWHooks.js";
+import { vectorMixin } from "../Vectors/pointWHooks.js";
 
 export function mergeVectorOps() {
     let vec = vectorMixin();
