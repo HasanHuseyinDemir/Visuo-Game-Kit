@@ -2,7 +2,6 @@ export function stateMixin({ state = {}, hooks = {} } = {}) {
     return {
             state:{...state },
             hooks:{...hooks },
-
             setState(newState) {
                 this.state = { ...this.state, ...newState };
                 if (this.hooks.onStateChange) {

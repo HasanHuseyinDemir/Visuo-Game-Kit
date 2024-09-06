@@ -7,7 +7,6 @@ export function stateMixin({ state = {}, onChange } = {}) {
             if (this.state!==state) {
                 const before=this.state;
                 this.state=state;
-                
                 if (this.onChange) {
                     this.onChange({before,current:this.state});
                 }
