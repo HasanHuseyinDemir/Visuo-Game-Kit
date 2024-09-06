@@ -1,5 +1,4 @@
 export function fullscreen(canvas){
-    let canvas=(specs.visual.canvas)
     if (canvas.requestFullscreen) {
         canvas.requestFullscreen();
     } else if (canvas.mozRequestFullScreen) { // Firefox

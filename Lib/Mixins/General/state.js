@@ -1,7 +1,7 @@
-function stateMixin({ state = {}, hooks = {} } = {}) {
+export function stateMixin({ state = {}, hooks = {} } = {}) {
     return {
-            state: { ...state },
-            hooks: { ...hooks },
+            state:{...state },
+            hooks:{...hooks },
 
             setState(newState) {
                 this.state = { ...this.state, ...newState };

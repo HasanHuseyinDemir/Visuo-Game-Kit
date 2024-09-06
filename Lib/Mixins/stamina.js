@@ -1,9 +1,8 @@
-function staminaMixin({ maxStamina = 100, currentStamina = 100, hooks = {} } = {}) {
+export function staminaMixin({ maxStamina = 100, currentStamina = 100, hooks = {} } = {}) {
     return {
             maxStamina,
             currentStamina,
             hooks: { ...hooks },
-
             use(amount) {
                 if (amount > 0) {
                     this.currentStamina = Math.max(0, this.currentStamina - amount);
@@ -15,7 +14,6 @@ function staminaMixin({ maxStamina = 100, currentStamina = 100, hooks = {} } = {
                     }
                 }
             },
-
             recover(amount) {
                 if (amount > 0) {
                     this.currentStamina = Math.min(this.maxStamina, this.currentStamina + amount);
@@ -24,7 +22,6 @@ function staminaMixin({ maxStamina = 100, currentStamina = 100, hooks = {} } = {
                     }
                 }
             },
-
             setStamina(amount) {
                 if (amount <= 0) {
                     this.currentStamina = 0;
@@ -37,7 +34,6 @@ function staminaMixin({ maxStamina = 100, currentStamina = 100, hooks = {} } = {
                     this.currentStamina = amount;
                 }
             },
-
             setMaxStamina(newMaxStamina) {
                 this.maxStamina = newMaxStamina;
                 this.currentStamina = Math.min(this.currentStamina, newMaxStamina);

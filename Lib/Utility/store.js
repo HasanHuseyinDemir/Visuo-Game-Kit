@@ -1,4 +1,4 @@
-class Store{
+export class Store{
     constructor(data){
         this.data=data  
     }

@@ -1,8 +1,8 @@
-function healthMixin({ maxHealth = 100, currentHealth = 100, hooks = {} } = {}) {
+export function healthMixin({ maxHealth = 100, currentHealth = 100, hooks = {} } = {}) {
     return {
             maxHealth,
             currentHealth,
-            hooks: { ...hooks },
+            hooks:{...hooks},
             takeDamage(amount) {
                 if (amount > 0 && this.hooks.onDamage) {
                     this.hooks.onDamage({ takedDamage: amount, currentHealth: this.currentHealth });
