@@ -2,11 +2,11 @@ function switcherMixin(config) {
     let prints = config.prints || {};
     let method = config.method || (() => "default");
     return {
-        execute(arg) {
-            const methodName = method(arg);
+        execute(...arg) {
+            const methodName = method(...arg);
             const calledMethodName = prints[methodName] ? methodName : "default";
             if (prints[calledMethodName]) {
-                return prints[calledMethodName](arg);
+                return prints[calledMethodName](...arg);
             } else {
                 throw new Error(`Method '${calledMethodName}' not found`);
             }
