@@ -1,4 +1,4 @@
-function throttleMixin(interval) {
+export function throttleMixin(interval) {
     let lastCall = 0;
     return {
         throttleFn(fn) {

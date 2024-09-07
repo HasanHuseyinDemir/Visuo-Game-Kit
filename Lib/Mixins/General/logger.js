@@ -1,4 +1,4 @@
-function createLoggerMixin({ maxLogs = Infinity, hooks = {} } = {}) {
+export function createLoggerMixin({ maxLogs = Infinity, hooks = {} } = {}) {
     const logs = [];
     
     function triggerHook(type, data) {

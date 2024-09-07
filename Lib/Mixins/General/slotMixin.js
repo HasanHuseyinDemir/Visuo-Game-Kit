@@ -1,4 +1,4 @@
-function slotMixin(initialSize, onError = () => {}) {
+export function slotMixin(initialSize, onError = () => {}) {
     if (initialSize < 1) {
         throw new Error("Slot size must be greater than 1.");
     }

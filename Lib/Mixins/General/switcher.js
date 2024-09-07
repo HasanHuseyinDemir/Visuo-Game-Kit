@@ -1,4 +1,4 @@
-function switcherMixin(config) {
+export function switcherMixin(config) {
     let prints = config.prints || {};
     let method = config.method || (() => "default");
     return {
